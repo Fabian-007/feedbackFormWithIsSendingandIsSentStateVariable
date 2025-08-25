@@ -7,10 +7,9 @@ export default function FeedbackForm() {
 
   async function handleSubmit(e) {
     e.preventDefault();
-    setIsSending(true);
+    setIsSending('sending');
     await sendMessage(text);
-    setIsSending(false);
-    setIsSent(true);
+    setIsSent('sent');
   }
 
   const isSending = status === 'sending'
