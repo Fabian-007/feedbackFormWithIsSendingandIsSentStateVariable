@@ -2,8 +2,8 @@ import { useState } from 'react';
 
 export default function FeedbackForm() {
   const [text, setText] = useState('');
-  const [isSending, setIsSending] = useState(false);
-  const [isSent, setIsSent] = useState(false);
+  const [status, setStatus] = useState('typing');
+
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -12,6 +12,9 @@ export default function FeedbackForm() {
     setIsSending(false);
     setIsSent(true);
   }
+
+  const isSending = status === 'sending'
+  const isSent = status === 'sent' 
 
   if (isSent) {
     return <h1>Thanks for feedback!</h1>
